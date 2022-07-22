@@ -9,41 +9,41 @@ setTimeout(() => {
 document.onkeydown = function (e) {
     console.log("Key code is: ", e.keyCode)
     if (e.keyCode == 38) {
-        dino = document.querySelector('.dino');
-        dino.classList.add('animateDino');
+        avatar = document.querySelector('.avatar');
+        avatar.classList.add('animateAvatar');
         setTimeout(() => {
-            dino.classList.remove('animateDino')
+            avatar.classList.remove('animateAvatar')
         }, 700);
     }
     if (e.keyCode == 39) {
-        dino = document.querySelector('.dino');
-        dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-        dino.style.left = dinoX + 112 + "px";
+        avatar = document.querySelector('.avatar');
+        avatarX = parseInt(window.getComputedStyle(avatar, null).getPropertyValue('left'));
+        avatar.style.left = avatarX + 112 + "px";
     }
     if (e.keyCode == 37) {
-        dino = document.querySelector('.dino');
-        dinoX = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-        dino.style.left = (dinoX - 112) + "px";
+        avatar = document.querySelector('.avatar');
+        avatarX = parseInt(window.getComputedStyle(avatar, null).getPropertyValue('left'));
+        avatar.style.left = (avatarX - 112) + "px";
     }
 }
 
 setInterval(() => {
-    dino = document.querySelector('.dino');
+    avatar = document.querySelector('.avatar');
     gameOver = document.querySelector('.gameOver');
-    obstacle = document.querySelector('.obstacle');
+    enemy = document.querySelector('.enemy');
 
-    dx = parseInt(window.getComputedStyle(dino, null).getPropertyValue('left'));
-    dy = parseInt(window.getComputedStyle(dino, null).getPropertyValue('top'));
+    dx = parseInt(window.getComputedStyle(avatar, null).getPropertyValue('left'));
+    dy = parseInt(window.getComputedStyle(avatar, null).getPropertyValue('top'));
 
-    ox = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('left'));
-    oy = parseInt(window.getComputedStyle(obstacle, null).getPropertyValue('top'));
+    ox = parseInt(window.getComputedStyle(enemy, null).getPropertyValue('left'));
+    oy = parseInt(window.getComputedStyle(enemy, null).getPropertyValue('top'));
 
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
     // console.log(offsetX, offsetY)
     if (offsetX < 73 && offsetY < 52) {
         gameOver.innerHTML = "Game Over - Reload to Play Again"
-        obstacle.classList.remove('obstacleAni')
+        enemy.classList.remove('enemyAni')
         audiogo.play();
         setTimeout(() => {
             audiogo.pause();
@@ -58,10 +58,10 @@ setInterval(() => {
             cross = true;
         }, 1000);
         setTimeout(() => {
-            aniDur = parseFloat(window.getComputedStyle(obstacle, null).getPropertyValue('animation-duration'));
+            aniDur = parseFloat(window.getComputedStyle(enemy, null).getPropertyValue('animation-duration'));
             newDur = aniDur - 0.1;
-            obstacle.style.animationDuration = newDur + 's';
-            console.log('New animation duration: ', newDur)
+            enemy.style.animationDuration = newDur + 's';
+            
         }, 500);
 
     }

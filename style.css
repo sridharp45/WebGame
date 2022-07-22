@@ -14,33 +14,29 @@ body{
     height: 100vh;
 }
 
-.dino{
-    background-image: url(dino.png);
+.avatar{
     background-repeat: no-repeat;
     background-size: cover;
-    width: 233px;
-    height: 114px;
-    position: absolute;
-    bottom:0;
-    left: 52px;
+    position:absolute;
+    bottom:0px;
+    height:30%;
+    width:20%;
 }
 
-.obstacle{
-    width: 166px;
-    height: 113px;
-    background-image: url(dragon.png);
+.enemy{
     background-size: cover;
     position: absolute;
-    bottom: 0;
-    left: 44vw;
+    bottom: 0px;
+    height:30%;
+    width:20%;
 }
 
-.animateDino{
-    animation: dino 0.6s linear;
+.animateAvatar{
+    animation: avatar 0.6s linear;
 }
 
-.obstacleAni{
-    animation: obstacleAni 5s linear infinite;
+.enemyAni{
+    animation: enemyAni 5s linear infinite;
 }
 
 .gameOver{
@@ -64,7 +60,7 @@ body{
     border-radius: 10px;
 }
 
-@keyframes dino{
+@keyframes avatar{
     0%{
         bottom: 0;
     }
@@ -76,7 +72,7 @@ body{
     }
 }
 
-@keyframes obstacleAni{
+@keyframes enemyAni{
     0%{
         left: 100vw;
     }
