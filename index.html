@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jurrasic World</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-</head>
-<body>
-    <div class="gameContainer">
-        <div class="gameOver"></div>
-        <div class="avatar">
-            <img src="avatar.png"/>
-        </div>
-        <div id="scoreCont">Your Score: 0</div>
-        <div class="enemy enemyAni">
-            <img src="enemy.png"/>
-        </div>
-    </div>
-</body>
+<html lang="en" onclick="jump" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>basic Game</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="script.js">
+      </script>
+  </head>
+  <body>
+    <img src="bg.png" class="bg" alt=""><div id="startscreen">
+    <button type="button" class="btn btn-dark" id="start-screen" name="button">Press Any Key to Start</button>
+    <button type="button" class="btn btn-warning score" name="button">Score is: 0</button>
+    <img src="CHARACTER-3.png" class="avatar" alt="">
+    <img src="dragon1.png" class="enemy" alt="">
+  </body>
 </html>
