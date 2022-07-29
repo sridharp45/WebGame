@@ -1,85 +1,124 @@
 *{
-    margin: 0;
-    padding:0;
-    height:100%;
+  margin: 0;
+  padding: 0;
 }
+
 body{
-    background-color: red;
-    overflow: hidden;
-    height:100%;
+  overflow: hidden;
 }
-.gameContainer{
-    background-image: url(bg.png);
-    background-repeat: no-repeat;
-    background-size: 100vw 100vh;
-    width: 100%;
-    height: 100vh;
+.bg{
+  width: 300%;
+  height: 100vh;
+  position: relative;
+  display: block;
+  z-index: -1;
+  background-repeat: repeat-x;
+}
+.bgani{
+  animation: bgani 7s linear infinite;
+}
+
+#start-screen{
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  font-size: 5vmin;
+}
+
+.score{
+  position: absolute;
+  right: 1vmin;
+  top: 1vmin;
 }
 
 .avatar{
-    background-repeat: no-repeat;
-    background-size: cover;
-    position:absolute;
-    bottom:0px;
-    height:30%;
-    width:20%;
+  position: absolute;
+  height: 30%;
+  bottom: 1vmin;
+  left: 1vmin;
+}
+.avatarani{
+  animation: avatarani 1s;
 }
 
-.enemy{
-    background-size: cover;
-    position: absolute;
-    bottom: 0px;
-    height:30%;
-    width:20%;
+.runani{
+  animation: runani 0.8s infinite;
+}
+.enemy {
+  position: absolute;
+  bottom: 1vmin;
+  right: 1vmin;
+  height: 30%;
+}
+.enemyani{
+  animation: enemyani 4s linear infinite;
 }
 
-.animateAvatar{
-    animation: avatar 0.6s linear;
+.hide{
+  display: none;
 }
 
-.enemyAni{
-    animation: enemyAni 5s linear infinite;
+@keyframes bgani {
+  100%{transform: translateX(-50%);}
 }
-
-.gameOver{
-    position: relative;
-    top:63px;
-    font-size: 53px;
-    text-align: center; 
-    font-family: 'Ubuntu', sans-serif;
+@keyframes avatarani {
+  0%{bottom: 0;}
+  50%{bottom: 150px;}
+  100%{bottom: 0;}
 }
-
-#scoreCont{
-    font-size: 25px;
-    color: #54212f;
-    font-weight: bold;
-    position: absolute;
-    right: 45px;
-    top: 31px;
-    border: 2px solid black;
-    padding: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    border-radius: 10px;
-    height:25px;
+@keyframes enemyani{
+  0%{
+      left: 100vw;
+      content: url('dragon1.png');
+  }
+  12.5%{
+    content: url('dragon2.png');
+  }
+  25%{
+    content: url('dragon1.png');
+  }
+  37.5%{
+    content: url('dragon2.png');
+  }
+  50%{
+    content: url('dragon1.png');
+  }
+  62.5%{
+    content: url('dragon2.png');
+  }
+  75%{
+    content: url('dragon1.png');
+  }
+  87.5%{
+    content: url('dragon2.png');
+  }
+  100%{
+      left: -10vw;
+      content: url('dragon1.png');
+  }
 }
-
-@keyframes avatar{
-    0%{
-        bottom: 0;
-    }
-    50%{
-        bottom: 422px;
-    }
-    100%{
-        bottom: 0; 
-    }
+@keyframes dragonrun {
+  0%{
+    content: url('dragon1.png');
+  }
+  100%{
+    content: url('dragon2.png');
+  }
 }
-
-@keyframes enemyAni{
-    0%{
-        left: 100vw;
-    }
-    100%{
-        left: -10vw;
-    }
+@keyframes runani {
+  0%{
+    content: url("CHARACTER-3.png");
+  }
+  25%{
+    content: url("CHARACTER-4.png");
+  }
+  50%{
+    content: url("CHARACTER-5.png");
+  }
+  75%{
+    content: url("CHARACTER-6.png");
+  }
+  100%{
+    content: url("CHARACTER-1.png");
+  }
 }
