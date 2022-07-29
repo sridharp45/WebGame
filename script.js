@@ -1,6 +1,5 @@
 score = 0;
 cross = true;
-
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3');
 setTimeout(() => {
@@ -8,11 +7,20 @@ setTimeout(() => {
 }, 1000);
 document.onkeydown = function (e) {
     console.log("Key code is: ", e.keyCode)
-    if (e.keyCode == 38) {
-        avatar = document.querySelector('.avatar');
-        avatar.classList.add('animateAvatar');
+    if(document.getElementById('start-screen').textContent != "Game Over - Reload to Play Again"){
+    document.getElementById("start-screen").style.visibility = "hidden";
+    document.querySelector('.bg').classList.add('bgani');
+    document.querySelector('.enemy').classList.add('enemyani');
+    // document.querySelector('.enemy').classList.add('dragonrun');
+    document.querySelector('.avatar').classList.add('runani');
+  }
+    if ((e.keyCode == 38 || e.keyCode == 32) && document.getElementById('start-screen').textContent != "Game Over - Reload to Play Again") {
+        character = document.querySelector('.avatar');
+        character.classList.remove('runani');
+        character.classList.add('avatarani');
         setTimeout(() => {
-            avatar.classList.remove('animateAvatar')
+            character.classList.remove('avatarani');
+            character.classList.add('runani');
         }, 700);
     }
     if (e.keyCode == 39) {
@@ -29,7 +37,7 @@ document.onkeydown = function (e) {
 
 setInterval(() => {
     avatar = document.querySelector('.avatar');
-    gameOver = document.querySelector('.gameOver');
+    startscreen = document.getElementById('start-screen');
     enemy = document.querySelector('.enemy');
 
     dx = parseInt(window.getComputedStyle(avatar, null).getPropertyValue('left'));
@@ -41,9 +49,12 @@ setInterval(() => {
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
     // console.log(offsetX, offsetY)
-    if (offsetX < 73 && offsetY < 52) {
-        gameOver.innerHTML = "Game Over - Reload to Play Again"
-        enemy.classList.remove('enemyAni')
+    if (offsetX < 63 && offsetY < 52) {
+        startscreen.textContent = "Game Over - Reload to Play Again"
+        startscreen.style.visibility = "visible";
+        enemy.classList.remove('enemyani');
+        document.querySelector('.bg').classList.remove('bgani');
+        avatar.classList.remove('runani');
         audiogo.play();
         setTimeout(() => {
             audiogo.pause();
@@ -61,7 +72,7 @@ setInterval(() => {
             aniDur = parseFloat(window.getComputedStyle(enemy, null).getPropertyValue('animation-duration'));
             newDur = aniDur - 0.1;
             enemy.style.animationDuration = newDur + 's';
-            
+
         }, 500);
 
     }
@@ -69,5 +80,5 @@ setInterval(() => {
 }, 10);
 
 function updateScore(score) {
-    scoreCont.innerHTML = "Your Score: " + score
+    document.querySelector('.score').textContent = "Your Score: " + score
 }
