@@ -59,7 +59,7 @@ setInterval(() => {
         enemy.classList.remove('enemyAni')   
         if (window.localStorage.getItem("highScore")<score){
             window.localStorage.setItem("highScore", score);
-            gameOver.innerHTML = "Congrats you have achieved your highest Score.     Game Over - Press Enter to Play Again"
+            gameOver.innerHTML = "Congrats you have achieved your highest Score.Game Over - Press Enter to Play Again"
         }
         else {
             gameOver.innerHTML = "Game Over - Press Enter to Play Again"
@@ -80,3 +80,4 @@ setInterval(() => {
 function updateScore(score) {
     scoreCont.innerHTML = "Your Score: " + score;
 }
+
